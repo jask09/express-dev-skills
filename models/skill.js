@@ -1,11 +1,11 @@
-const todos = [
+const skills = [
   {id: 125223, skill: 'Write', done: true},
   {id: 127904, skill: 'Walk', done: false},
   {id: 139608, skill: 'Read', done: false}
 ];
 
 module.exports = {
-  getAll
+  getAll,
   getOne,
   create,
   deleteOne,
@@ -16,7 +16,7 @@ function getAll() {
   return skills;
 }
 
-function getone(id) {
+function getOne(id) {
     id= parseInt(id);
     return skills.find(skill=> skill,id === id);
   }
