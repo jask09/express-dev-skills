@@ -1,20 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skills To Do</title>
-</head>
-<body>
-    <h1>All Skills</h1>
-    <ul>
-      <% skills.forEach(function(s) { %>
-        <li>
-          <%= s.skill %>
-            - 
-          <%= s.done ? 'done' : 'not done' %>
-        </li>
-      <% }); %>
-    </ul>
-  </body>
+<% skills.forEach(function(s) { %>
+  <li>
+    <a href="/skills/<%= s.id %>"><%= s.language %></a>
+    <form action="/skills/<%= s.id %>?_method=DELETE"
+      class="delete-form" method="POST">
+      <button type="submit">X</button>
+    </form>
+  </li>
+  <% }); %>
+  
+  <a href="/skills/new">New Skill</a>
+
+</ul>
+
+</body>
 </html>

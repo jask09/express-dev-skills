@@ -1,15 +1,15 @@
 const skills = [
-  {id: 125223, skill: 'Write', done: true},
-  {id: 127904, skill: 'Walk', done: false},
-  {id: 139608, skill: 'Read', done: false}
-];
+  {id: 346, language: 'JavaScript'},
+  {id: 246, language: 'HTML'},
+  {id: 546, language: 'css'}
+  
+]
 
 module.exports = {
   getAll,
   getOne,
   create,
   deleteOne,
-  update
 };
 
 function getAll() {
@@ -17,24 +17,53 @@ function getAll() {
 }
 
 function getOne(id) {
-    id= parseInt(id);
-    return skills.find(skill=> skill,id === id);
-  }
+  // URL params are strings - convert to a number
+  id = parseInt(id);
+  // The Array.prototype.find iterator method is
+  // ideal for finding objects within an array
+  return skill.find(skill => skill.id === id);
+}
+function create(skill) {
+  skill.id = Date.now() % 1000000;
+  skills.push(skill)
 
-  function create (skill) {
-    skill.id = Date.now() % 1000000;
-    skills.push(skill);
-  }
+}
+function deleteOne(id) {
+  id = parseInt(id);
+  const idx = skills.findIndex(skill => skill.id === id);
+  skills.splice(idx, 1);
+}const skills = [
+  {id: 346, language: 'JavaScript'},
+  {id: 246, language: 'HTML'},
+  {id: 546, language: 'css'}
+  
+]
 
-  function deleteOne(id) {
-id =parseInt(id);
-const idx = skills.findIndex(skill => skill.id ===id);
-skills.splice(idx,1);
-  }
+module.exports = {
+  getAll,
+  getOne,
+  create,
+  deleteOne,
+};
 
-  function update (id, updateSkill) {
-id = parseInt(id);
-const skill = skills.find(skill => skill.id ===id);
-Object.assign(skill,updateSkill);
+function getAll() {
+  return skills;
+}
 
-  }
+function getOne(id) {
+  // URL params are strings - convert to a number
+  id = parseInt(id);
+  // The Array.prototype.find iterator method is
+  // ideal for finding objects within an array
+  return skill.find(skill => skill.id === id);
+}
+function create(skill) {
+  skill.id = Date.now() % 1000000;
+  skills.push(skill)
+
+}
+function deleteOne(id) {
+  id = parseInt(id);
+  const idx = skills.findIndex(skill => skill.id === id);
+  skills.splice(idx, 1);
+}
